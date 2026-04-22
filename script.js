@@ -3,19 +3,27 @@ console.log("Script started");
 let questions = [
     {
         question: "What is the capital of Arizona?",
-        choice1: "Tucson",
-        choice2: "Phoenix",
-        choice3: "Yuma",
-        choice4: "Flagstaff",
+        option1: "Tucson",
+        option2: "Phoenix",
+        option3: "Yuma",
+        option4: "Flagstaff",
         answer: "Phoenix"
     },
     {
         question: "How many nickels in a quarter?",
-        choice1: 25,
-        choice2: 10,
-        choice3: 5,
-        choice4: 3,
+        option1: 25,
+        option2: 10,
+        option3: 5,
+        option4: 3,
         answer: 5
+    },
+    {
+        question: "What gets wetter as it dries?",
+        option1: "Paint",
+        option2: "A dolphin",
+        option3: "Hair",
+        option4: "A towel",
+        answer: "A towel"
     }
 ]
 
@@ -33,41 +41,41 @@ function showNextQuestion() {
     let questionText = document.getElementById("question");
     questionText.innerText = current.question;
 
-    let choice1 = document.getElementById("choice1text");
-    choice1.innerText = current.choice1;
+    let choice1 = document.getElementById("option1text");
+    choice1.innerText = current.option1;
 
-    let choice2 = document.getElementById("choice2text");
-    choice2.innerText = current.choice2;
+    let choice2 = document.getElementById("option2text");
+    choice2.innerText = current.option2;
 
-    let choice3 = document.getElementById("choice3text");
-    choice3.innerText = current.choice3;
+    let choice3 = document.getElementById("option3text");
+    choice3.innerText = current.option3;
 
-    let choice4 = document.getElementById("choice4text");
-    choice4.innerText = current.choice4;
+    let choice4 = document.getElementById("option4text");
+    choice4.innerText = current.option4;
 }
 
 function submitAnswer(event) {
     event.preventDefault();
-    let option1 = document.getElementById("choice1");
-    let option2 = document.getElementById("choice2");
-    let option3 = document.getElementById("choice3");
-    let option4 = document.getElementById("choice4");
+    let option1 = document.getElementById("option1");
+    let option2 = document.getElementById("option2");
+    let option3 = document.getElementById("option3");
+    let option4 = document.getElementById("option4");
 
     let currentQ = questions[index];
     if (option1.checked) {
-        userAnswers.push(currentQ.choice1);
+        userAnswers.push(currentQ.option1);
         option1.checked = false;
     }
     else if (option2.checked) {
-        userAnswers.push(currentQ.choice2);
+        userAnswers.push(currentQ.option2);
         option2.checked = false;
     }
     else if (option3.checked) {
-        userAnswers.push(currentQ.choice3);
+        userAnswers.push(currentQ.option3);
         option3.checked = false;
     }
     else if (option4.checked) {
-        userAnswers.push(currentQ.choice4);
+        userAnswers.push(currentQ.option4);
         option4.checked = false;
     }
     else {
@@ -77,7 +85,7 @@ function submitAnswer(event) {
 
     console.log(userAnswers);
     index++;
-    setTimeout(showNextQuestion, 1000);
+    showNextQuestion();
 }
 
 function checkAnswers() {
